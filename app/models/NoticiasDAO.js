@@ -17,6 +17,10 @@ NoticiasDAO.prototype.salvarNoticia = function(noticia,callback){
     o mesmo nome que as colunas da tabela*/
 }
 
+NoticiasDAO.prototype.get5UltimasNoticias = function(callback) {
+    this._connection.query('select * from noticias order by data_criacao desc limit 5', callback);
+}
+
 module.exports = function () {
     return NoticiasDAO;
 }
